@@ -1,0 +1,30 @@
+paper summary -- FNN and SNN
+Zhang, Weinan, Tianming Du, and Jun Wang. "Deep learning over multi-field categorical data." European conference on information retrieval. Springer, Cham, 2016.
+
+1. Introduction:
+
+1.1 traditional models
+The applied CTR estimation models today are mostly linear, ranging from logistic regression and naive Bayes to FTRL logistic regression and Bayesian probit regression
+Common:
+all of which are based on a huge number of sparse features with one-hot encoding
+Different (advantages verus disadvantage)
+Linear models: 
+easy implementation, efficient learning 
+but relative low performance because of the failure of learning the nontrivial patterns to catch the interactions between the assumed (conditionally) independent raw features
+Non-linear models: 
+to utilise different feature combinations to potentially improve es- timation performance
+for example:
+vector inner product: feature interaction is automatically explored
+Gradient boosting trees: automatically learn feature combinations while growing each decision/regression tree.
+==> HOWEVER even using non-linear models cannot make use of all possible combinations of different features, many models require feature engineering that manually designs what the inputs should be
+
+1.2 the application of deep learning
+advantages: unsupervised training on deep structures would be able to explore such local dependency and establish a dense representation of the feature space, making neural network models effective in learning high-order features directly from the raw feature input
+problems: most input features in CTR estimation are of multi-field and are discrete categorical features
+
+1.3 in this paper
+It introduces two types of deep learning models, called Factorisation Machine supported Neu- ral Network (FNN) and Sampling-based Neural Network (SNN) to handle ad CTR estimation task
+FNN: FNN with a supervised-learning embedding layer using factorisation machines is proposed to efficiently reduce the dimension from sparse features to dense continuous features
+SNN: is a deep neural network powered by a sampling-based restricted Boltzmann machine (SNN-RBM) or a sampling- based denoising auto-encoder (SNN-DAE) with a proposed negative sampling method
+
+Model construction: build multiple layers neural nets with full connections based on the embedding layer to explore non-trivial data patterns.
