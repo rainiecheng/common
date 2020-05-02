@@ -28,3 +28,28 @@ FNN: FNN with a supervised-learning embedding layer using factorisation machines
 SNN: is a deep neural network powered by a sampling-based restricted Boltzmann machine (SNN-RBM) or a sampling- based denoising auto-encoder (SNN-DAE) with a proposed negative sampling method
 
 Model construction: build multiple layers neural nets with full connections based on the embedding layer to explore non-trivial data patterns.
+
+2. related work (embedding + deep learning)
+The majority of current models use logistic regression based on a set of sparse binary features converted from the original categorical features via one-hot encoding. It needs feature engineeriing: locations, top unigrams, combination features, etc.
+
+3.1 Embedding:
+Embedding very large feature vector into low-dimensional vector spaces:
+advantages: 
+(1) it reduces the data and model complexity 
+(2) improves both the effectiveness and the efficiency of the training and prediction
+methods:
+(1) Factorisation machine (FM): has the capability of estimating interactions between any two features via mapping them into vectors in a low-rank latent space
+
+3.2 Deep learning:
+motivation: 
+Deep neural networks (DNNs) are able to extract the hidden structures and intrinsic patterns at dif- ferent levels of abstractions from training data
+DNN learning step:
+(1) the first stage performs model initialisation via unsupervised learning 
+(2) the second stage involves a fine tuning of the initialised model via supervised learning with back-propagation (BP)
+
+3.3 In this paper:
+sparse binary inpus: The novelty of our deep learning models lies in the first layer initialisation, where the input raw features are high dimensional and sparse binary features converted from the raw categorical features, which makes it hard to train traditional DNNs in large scale. 
+enlarged data structures: Compared with the word-embedding techniques used in NLP, our models deal with more general multi-field categorical features without any assumed data structures such as word alignment and letter-n-gram etc.
+
+3 model details
+3.1 Factorisation-machine supported Neural Networks (FNN)
